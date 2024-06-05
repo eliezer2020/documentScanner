@@ -15,8 +15,9 @@ class DocumentDetails extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text('Document Details'),
         ),
-        body: Center(
-          child: textDisplayer(imagePath),
+        body: Flex(
+          direction: Axis.horizontal,
+          children: [textDisplayer(imagePath)],
         ));
   }
 }

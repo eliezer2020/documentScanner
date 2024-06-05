@@ -49,6 +49,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   File? imagePath;
+  callbackSetState(File imagePath) => setState(() {
+        this.imagePath = imagePath;
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: mainBody(context, imagePath),
+        body: mainBody(context, imagePath, callbackSetState),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
             print("FileScan clicked");
