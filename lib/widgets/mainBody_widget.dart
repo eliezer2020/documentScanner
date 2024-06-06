@@ -3,10 +3,14 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/pages/documentDetails_widget.dart';
+import 'package:flutter_application_3/services/TextRecognizion_service.dart';
 import 'package:image_picker/image_picker.dart';
 
 Center mainBody(
     BuildContext context, File? imagePath, Function callbackSetState) {
+  final trs = TextrecognizionService();
+  var textFromCamera;
+  textFromCamera;
   return Center(
     // Center is a layout widget. It takes a single child and positions it
     // in the middle of the parent.
@@ -19,18 +23,9 @@ Center mainBody(
         ),
         FloatingActionButton.extended(
             onPressed: () async {
-              print("Camera scan clicked");
-              final ImagePicker _picker = ImagePicker();
-              final XFile? selectedImage =
-                  await _picker.pickImage(source: ImageSource.gallery);
-              print("image $selectedImage");
-              if (selectedImage != null) {
-                imagePath = File(selectedImage.path);
-                callbackSetState(imagePath);
-                print("imagePath:: $imagePath");
-              } else {
-                print("media is empty");
-              }
+              String textFromCamera = await trs.extractFromCamera();
+              imagePath = File(textFromCamera);
+              callbackSetState(imagePath);
             },
             tooltip: 'SCAN',
             label: const Text("camera scanner"),
