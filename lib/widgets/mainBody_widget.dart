@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/pages/documentDetails_widget.dart';
 import 'package:flutter_application_3/services/TextRecognizion_service.dart';
-import 'package:image_picker/image_picker.dart';
 
 Center mainBody(
     BuildContext context, File? imagePath, Function callbackSetState) {
