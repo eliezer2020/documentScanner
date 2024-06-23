@@ -1,16 +1,5 @@
-# flutter_application_3
+Document Scanner is an application that can extract text from documents in general with the use of a camera, which then can be sent to the appropriate channels for further processing.
 
-A new Flutter project.
+Documents will not need to have a defined structure since it will be able to recognize text and images contained in it. With this application were effectively automating the process and not only saving time, and costs but also reducing human error during the processing of documents.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The project is developed with Flutter which is an open-source SDK which enables having a single code base for developing cross-platform applications, making it possible for our application to work in a variety of devices and platform that have a access to a camera and also has built-in support for a variety of robust and tested APIs which make the development easier by doing the heavy-lifting for us with support from thousands of developers around the world.
