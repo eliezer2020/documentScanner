@@ -20,17 +20,22 @@ Widget textDisplayer(File imagePath) {
       child: FutureBuilder(
           future: trs.extractText(imagePath),
           builder: (context, snapshot) {
-            return Scrollbar(
-              controller: _scrollController,
-              thickness: 12,
-              thumbVisibility: true,
-              child: SingleChildScrollView(
+            if (snapshot.connectionState == ConnectionState.waiting ||
+                snapshot.hasError) {
+              return const Center(child: CircularProgressIndicator());
+            } else {
+              return Scrollbar(
                 controller: _scrollController,
-                child: Container(
-                    padding: const EdgeInsets.only(left: 10.0, right: 12.0),
-                    child: Text(snapshot.data ?? "")),
-              ),
-            );
+                thickness: 12,
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Container(
+                      padding: const EdgeInsets.only(left: 10.0, right: 12.0),
+                      child: Text(snapshot.data ?? "")),
+                ),
+              );
+            }
           }),
     );
   }
